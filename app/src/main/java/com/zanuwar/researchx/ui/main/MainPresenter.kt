@@ -10,9 +10,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class MainPresenter(private val mainView: MainView) {
-    private val service = NetworkFactory.networkService
-
-    fun getPost() {
+    fun getPost(service: NetworkService) {
         GlobalScope.launch(Dispatchers.Main) {
             val postRequest = service.getPosts()
             val response = postRequest.await()
